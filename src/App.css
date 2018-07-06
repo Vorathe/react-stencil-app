@@ -12,7 +12,7 @@
   --ui-dropdown-list-padding: 0;
   --ui-dropdown-list-margin: 0 0 0 0;
   --ui-dropdown-list-background-color: rgba(250, 250, 250, .92);
-  --ui-dropdown-focus-shadow: 0 0 .188rem rgba(255, 255, 255, .45);
+  --ui-dropdown-focus-shadow: 0 0 3px #0a162f;
 }
 #root,
 body,
