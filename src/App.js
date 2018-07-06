@@ -13,7 +13,7 @@ class App extends Component {
     const dropdownData = [];
     for (let i = 0; i < numItems; i++) {
       dropdownData.push({
-        image: 'http://loremflickr.com/60/60/dog?' + i,
+        image: 'https://picsum.photos/720?' + i,
         description: faker.lorem.sentences(1,3)
       });
     }
@@ -30,29 +30,28 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="demo-wrapper" style={this.state.selected.image && (
+        {background: 'url('+this.state.selected.image+') no-repeat center center fixed'}
+      )}>
         <img src={logo} className="App-logo" alt="logo" />
-        <ui-dropdown label="My React Dropdown" id="uniqueDropdown">
-          <ul>
-            {
-              this.state.data
-                .map( (o, i) =>
-                  <li key={i} onClick={ () => this.toggleDropdown(i) }>
-                    <img alt="cat" src={ o.image }/>
-                    <div>{ o.description }</div>
-                  </li>
-                )
-            }
-          </ul>
-        </ui-dropdown>
-        {
-          this.state.selected.image && (
-            <div>
-              <img alt="cat" src={ this.state.selected.image }/>
-              <div>{ this.state.selected.description }</div>
-            </div>
-          )
-        }
+          <ui-dropdown label="My React Dropdown" id="uniqueDropdown">
+            <ul>
+              {
+                this.state.data
+                  .map( (o, i) =>
+                    <li key={i} onClick={ () => this.toggleDropdown(i) }>
+                      <img alt="cat" src={ o.image }/>
+                      <div>{ o.description }</div>
+                    </li>
+                  )
+              }
+            </ul>
+          </ui-dropdown>
+          {
+            this.state.selected.image && (
+              <div className="dropdown-description">{ this.state.selected.description }</div>
+            )
+          }
       </div>
     );
   }
